@@ -46,9 +46,11 @@ public class NormalRandomGeneratorGPU implements RandomVectorGenerator{
 
         CLKernel kernel = program.createKernel("normal_generator");
 
+        //initialize pointer
         final Pointer<Double>
                 aPtr = allocateDoubles(n);
 
+        //set pointer to the vector
         for (int i = 0; i < n; i++) {
             aPtr.set(i, uv[i]);
         }
